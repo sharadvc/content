@@ -466,8 +466,6 @@ For example, you could use a combination of {{cssxref("anchor()")}} function val
 
 ```css
 .my-popover {
-  margin: 0;
-  inset: auto;
   bottom: calc(anchor(top) + 20px);
   justify-self: anchor-center;
 }
@@ -477,13 +475,11 @@ Or you could use a {{cssxref("position-area")}} property:
 
 ```css
 .my-popover {
-  margin: 0;
-  inset: auto;
   position-area: top;
 }
 ```
 
-When using {{cssxref("position-area")}} or {{cssxref("anchor()")}} to position popovers, be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) may conflict with the position you're trying to achieve. The usual culprits are the default styles for `margin` and `inset`, so it's advisable to reset those, as in the examples above. The CSS working group is [looking at ways to avoid requiring this workaround](https://github.com/w3c/csswg-drafts/issues/10258).
+When using {{cssxref("anchor()")}} to position popovers without `anchor-center`, be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) may conflict with the position you're trying to achieve. The usual culprits are the default styles for `margin` and `inset`, so it's advisable to reset those. When using {{cssxref("position-area")}} or `anchor-center`, any auto inset properties and auto margin properties resolve to `0`, so resetting `margin` and `inset` is not required.
 
 See [Using CSS anchor positioning](/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using#positioning_elements_relative_to_their_anchor) for more details on associating anchor and positioned elements, and positioning elements relative to their anchor.
 

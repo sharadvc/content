@@ -134,7 +134,7 @@ The below table lists the inset properties, and the `<anchor-side>` parameter va
 
 ### Using `anchor()` to position popovers
 
-When using `anchor()` to position [popovers](/en-US/docs/Web/HTML/Reference/Global_attributes/popover), be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) may conflict with the position you're trying to achieve. The usual culprits are the default styles for `margin` and `inset`, so it's advisable to reset those:
+When using `anchor()` to position [popovers](/en-US/docs/Web/HTML/Reference/Global_attributes/popover) without [`anchor-center`](/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center), be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) may conflict with the position you're trying to achieve. The usual culprits are the default styles for `margin` and `inset`, so it's advisable to reset those:
 
 ```css
 .positionedPopover {
@@ -143,7 +143,7 @@ When using `anchor()` to position [popovers](/en-US/docs/Web/HTML/Reference/Glob
 }
 ```
 
-The CSS working group is [looking at ways to avoid requiring this workaround](https://github.com/w3c/csswg-drafts/issues/10258).
+When using {{cssxref("position-area")}} or `anchor-center` instead, any auto inset properties and auto margin properties resolve to `0`, so this reset is not needed.
 
 ### Using `anchor()` inside `calc()`
 

@@ -118,16 +118,7 @@ If the positioned element is placed in any other single grid square (say with `p
 
 ### Using `position-area` to position popovers
 
-When using `position-area` to position [popovers](/en-US/docs/Web/HTML/Reference/Global_attributes/popover), be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) may conflict with the position you're trying to achieve. The usual culprits are the default styles for `margin` and `inset`, so it's advisable to reset those:
-
-```css
-.my-popover {
-  margin: 0;
-  inset: auto;
-}
-```
-
-The CSS working group is [looking at ways to avoid requiring this workaround](https://github.com/w3c/csswg-drafts/issues/10258).
+When using `position-area` to position [popovers](/en-US/docs/Web/HTML/Reference/Global_attributes/popover), be aware that [the default styles for popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) include `margin` and `inset` values that can affect layout. When `position-area` is set to a value other than `none`, any auto inset properties and auto margin properties resolve to `0` (see [inset properties and values](#inset_properties_and_values) above), so you do not need to reset `margin` or `inset` for positioning. The same applies when using [`anchor-center`](/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) on alignment properties.
 
 ## Formal definition
 
